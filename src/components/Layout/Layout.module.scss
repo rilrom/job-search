@@ -1,0 +1,28 @@
+@import 'styles/variables.scss';
+
+.main {
+  margin-bottom: 3rem;
+
+  @media (min-width: 768px) {
+    width: calc(100% - #{$side-nav-width});
+    margin-left: $side-nav-width;
+    padding-top: 4.5rem;
+  }
+}
+
+.container {
+  padding-left: 24px;
+  padding-right: 24px;
+
+  @media (min-width: 768px) {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+.title {
+  color: $primary;
+  margin-top: 0;
+  padding-top: 1.6rem;
+  margin-bottom: 0;
+}

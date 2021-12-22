@@ -1,0 +1,74 @@
+@import './variables.scss';
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font;
+}
+
+// react-datepicker
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+// react-accessible-accordion
+.accordion__button {
+  width: inherit !important;
+}
+
+.accordion__button[aria-expanded="true"]:before {
+  margin-bottom: 3px;
+}
+
+// react-burger-menu
+.bm-menu-wrap {
+  @media (max-width: 349.98px) {
+    width: 250px !important;
+  }
+}
+
+// generic table styles
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+
+  thead {
+    th {
+      text-align: left;
+      vertical-align: bottom;
+      border-bottom: 2px solid #dee2e6;
+    }
+  }
+
+  td,
+  th {
+    padding: 0.75rem;
+    border-top: 1px solid #dee2e6;
+  }
+
+  td {
+    &:first-child {
+      font-weight: bold;
+      min-width: 250px;
+    }
+  }
+
+}
+
+// remove the arrows from number inputs
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

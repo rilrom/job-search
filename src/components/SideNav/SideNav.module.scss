@@ -1,0 +1,38 @@
+@import 'styles/variables.scss';
+
+.header {
+  width: $side-nav-width;
+  height: $main-nav-height;
+  background-color: $primary;
+  display: flex;
+  align-items: center;
+  padding-left: $padding;
+  padding-right: $padding;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.headerText {
+  color: $white;
+  margin: 0;
+}
+
+.filters {
+  width: $side-nav-width;
+  margin-top: $main-nav-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #eee;
+}
+
+.container {
+  padding-left: $padding;
+  padding-right: $padding;
+}

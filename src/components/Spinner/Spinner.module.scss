@@ -1,0 +1,15 @@
+.spinner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+
+  @media (min-width: 768px) {
+    margin-top: 10rem;
+  }
+
+  svg {
+    width: 50px;
+  }
+}

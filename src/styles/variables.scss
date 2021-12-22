@@ -1,0 +1,18 @@
+$primary: #1f1f5f;
+$primary-light: lighten($primary, 10%);
+$primary-dark: darken($primary, 10%);
+$secondary: #127cc0;
+$secondary-light: lighten($secondary, 10%);
+$secondary-dark: darken($secondary, 10%);
+$text: #454347;
+$text-light: lighten($text, 10%);
+$text-dark: darken($text, 10%);
+
+$white: #fff;
+$black: #000;
+
+$font: "Manrope", "Arial", sans-serif;
+
+$main-nav-height: 70px;
+$side-nav-width: 300px;
+$padding: 24px;

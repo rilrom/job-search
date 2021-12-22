@@ -1,0 +1,78 @@
+@import 'styles/variables.scss';
+
+.title {
+  margin-top: 0;
+  padding-top: 1.6rem;
+  color: $primary;
+  margin-bottom: calc(1rem + 27px);
+}
+
+.accordionHeading {
+  font-weight: bold;
+  display: inline;
+}
+
+.accordionDescription {
+  padding-top: 10px;
+  line-height: 1.5;
+
+  @media (min-width: 576px) {
+    padding-left: 25px;
+  }
+}
+
+.accordionRow {
+
+  @media (min-width: 576px) {
+    display: flex;
+  }
+
+  + .accordionRow {
+    margin-top: 1.5rem;
+  }
+}
+
+.accordionCell {
+  word-break: break-word;
+
+  &:first-child {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+
+    @media (min-width: 576px) {
+      width: 150px;
+      min-width: 150px;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 768px) {
+      width: 200px;
+      min-width: 200px;
+    }
+  }
+
+}
+
+.accordionAttachments {
+  margin: 0;
+  padding: 0;
+  padding-left: 1rem;
+  
+  li + li {
+    margin-top: 1rem;
+  }
+}
+
+.accordionButton {
+  padding: 1rem 1.5rem;
+  background-color: $primary;
+  border-color: $primary;
+  color: $white;
+  transition: 0.2s all ease-in;
+
+  &:hover {
+    background-color: $primary-dark;
+    border-color: $primary-dark;
+    cursor: pointer;
+  }
+}

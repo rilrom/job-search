@@ -1,0 +1,55 @@
+@import 'styles/variables.scss';
+
+.header {
+  background-color: $primary;
+  height: $main-nav-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  @media (min-width: 768px) {
+    width: calc(100% - #{$side-nav-width});
+    margin-left: $side-nav-width;
+    top: 0;
+    right: 0;
+    left: auto;
+  }
+}
+
+.container {
+  padding-left: $padding;
+  padding-right: $padding;
+  height: 100%;
+}
+
+.left,
+.right {
+  display: flex;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+
+  a {
+    color: $white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1.5rem;
+  }
+}
+
+.mobile_heading {
+  color: $white;
+  margin: 0;
+  font-size: 24px;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
