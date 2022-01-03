@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { SearchParamsState } from "./types";
 
 const initialState: SearchParamsState = {
-  keyword: "Job",
+  keyword: "",
 };
 
 export const searchParamsSlice = createSlice({

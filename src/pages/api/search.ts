@@ -3,12 +3,18 @@ import type { NextApiRequest, NextApiResponse } from "next";
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   let vacancies = [
     {
-      title: "Job",
+      title: "Software Engineer",
+    },
+    {
+      title: "Tech Lead",
+    },
+    {
+      title: "UX Designer",
     },
   ];
 
   let found = vacancies.filter(
-    (vacancy) => req.body.keyword.toLowerCase() === vacancy.title.toLowerCase()
+    (vacancy) => vacancy.title.toLowerCase().includes(req.body.keyword.toLowerCase())
   );
 
   if (found.length) {
