@@ -1,3 +1,4 @@
+import qs from 'qs';
 import {
   createAsyncThunk,
   createSlice,
@@ -10,29 +11,37 @@ import {
 } from "./types";
 
 const initialState: SearchResultsState = {
-  results: [],
+  payload: null,
   status: "idle",
   isLoading: false,
   error: null,
 };
 
 export const searchResultsAsync = createAsyncThunk<
-  SearchResultsResponse[],
+  SearchResultsResponse,
   SearchResultsRequest
 >("/searchResults/search", async ({ keyword }, thunkAPI) => {
-  const response = await fetch("/api/search", {
-    method: "POST",
+
+  const query = {
+    title: {
+      like: keyword
+    }
+  }
+
+  const stringifiedQuery = qs.stringify({
+    where: query
+  }, { addQueryPrefix: true });
+
+  const response = await fetch(`http://localhost:3000/api/jobs${stringifiedQuery}`, {
+    method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      keyword,
-    }),
   });
 
   if (response.status === 200) {
-    return (await response.json()) as SearchResultsResponse[];
+    return (await response.json()) as SearchResultsResponse;
   } else {
     return thunkAPI.rejectWithValue((await response.json()) as SerializedError);
   }
@@ -43,7 +52,7 @@ export const searchResultsSlice = createSlice({
   initialState,
   reducers: {
     resetSearchResults: (state) => {
-      state.results = initialState.results;
+      state.payload = initialState.payload;
       state.error = initialState.error;
       return state;
     },
@@ -53,7 +62,7 @@ export const searchResultsSlice = createSlice({
       .addCase(searchResultsAsync.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.isLoading = false;
-        state.results = action.payload;
+        state.payload = action.payload;
         state.error = null;
       })
       .addCase(searchResultsAsync.rejected, (state, action) => {

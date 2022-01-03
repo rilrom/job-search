@@ -16,7 +16,7 @@ import Spinner from "../../components/Spinner";
 import classes from "./SearchResults.module.scss";
 
 function SearchResults() {
-  const results = useAppSelector((state) => state.searchResults.results);
+  const results = useAppSelector((state) => state.searchResults.payload?.docs);
   const isLoading = useAppSelector((state) => state.searchResults.isLoading);
   const error = useAppSelector((state) => state.searchResults.error);
 
@@ -30,7 +30,7 @@ function SearchResults() {
 
   return (
     <div className={classes.container}>
-      {!!results.length && (
+      {!!results?.length && (
         <>
           <h2 className={classes.title}>Search Results</h2>
 
