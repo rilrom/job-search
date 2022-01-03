@@ -59,6 +59,9 @@ function BurgerMenu() {
       <Link href="/">
         <a className={classes.menu_item}>Home</a>
       </Link>
+      <Link href="https://github.com/rilrom/job-search">
+        <a className={classes.menu_item} target="_blank" title="Opens in a new window">Github</a>
+      </Link>
     </Menu>
   );
 }

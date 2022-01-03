@@ -19,6 +19,9 @@ function MainNav() {
                     <Link href="/">
                       <a>Home</a>
                     </Link>
+                    <Link href="https://github.com/rilrom/job-search">
+                      <a target="_blank" title="Opens in a new window">Github</a>
+                    </Link>
                   </div>
                 </>
               ) : (
