@@ -6,22 +6,6 @@ Search for jobs from an external API consisting of mock data.
 
 This project is currently in development. Users can search by keyword to find results. Additional filters and authentication features are in progress.
 
-## Installation and Setup Instructions
-
-Clone this repository. You will need `node` and `npm` installed globally on your machine.
-
-Installation:
-
-`npm install`  
-
-To start server:
-
-`npm start`  
-
-To visit app:
-
-`http://localhost:3000`
-
 ## Reflection
 
 This project was to familiarize myself with typescript and @reduxjs/toolkit.
