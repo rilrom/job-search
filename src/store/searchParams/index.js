@@ -18,9 +18,15 @@ export const searchParamsSlice = createSlice({
     name: "searchParams",
     initialState,
     reducers: {
-        updateSearchParams: (state, action) => {
-            state = { ...state, [action.payload.name]: action.payload.value };
-            return state;
+        updateSearchParams: {
+            reducer: (state, action) => {
+                state = { ...state, [action.payload.name]: action.payload.value };
+                return state;
+            },
+            // Use this if you need to adjust the payload value before it hits the reducer
+            prepare: (action) => {
+                return { payload: action };
+            }
         },
         resetSearchParams: (state) => {
             state = { ...initialState };
