@@ -5,19 +5,19 @@ import "styles/globals.scss";
 // Global packages
 import "react-accessible-accordion/dist/fancy-example.css";
 
+// Dependencies
 import { Provider } from "react-redux";
-import type { AppProps } from "next/app";
-
 import { store } from "store";
 
+// Components
 import Layout from "components/Layout";
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Provider>
-  );
+export default function MyApp({ Component, pageProps }) {
+    return (
+        <Provider store={store}>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </Provider>
+    );
 }
