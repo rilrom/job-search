@@ -6,7 +6,7 @@ export default async (req, res) => {
         const response = await axios.post("https://jobs.nt.gov.au/Home/Search", JSON.stringify(req.body), {
             headers: {
                 "Content-Type": "application/json",
-                Accept: "application/json",
+                "Accept": "application/json",
             },
         });
 

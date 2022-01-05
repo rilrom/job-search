@@ -20,12 +20,11 @@ function SearchResults() {
     const isLoading = useSelector((state) => state.searchResults.isLoading);
     const error = useSelector((state) => state.searchResults.error);
 
-    console.log(results);
-
     if (isLoading) {
         return <Spinner />;
     }
 
+    // TODO: improve error handling with relevant messages
     if (error) {
         return <h2 className={classes.title}>No results</h2>;
     }
