@@ -11,32 +11,38 @@ const initialState = {
 };
 
 export const searchResultsAsync = createAsyncThunk("/searchResults/search", async (payload, thunkAPI) => {
-    const response = await fetch("/api/search", {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        // Adjustments made to match external api parameters
-        body: JSON.stringify({
-            VacancyNumber: payload.vacancyNumber,
-            Keyword: payload.keyword,
-            SelectedAgencyList: payload.department.map((obj) => obj.value),
-            SelectedCategoryList: payload.category.map((obj) => obj.value),
-            SelectedLocationsList: payload.location.map((obj) => obj.value),
-            RemunerationRangeFrom: payload.renumerationFrom,
-            RemunerationRangeTo: payload.renumerationTo,
-            SelectedVacanycyType: payload.vacancyType,
-            DateAdvertisedAfter: payload.date,
-            SalaryRangeFrom: payload.salaryFrom,
-            SalaryRangeTo: payload.salaryTo,
-        }),
-    });
+    try {
+        const response = await fetch("/api/search", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            // Adjustments made to payload to match external api parameters
+            body: JSON.stringify({
+                VacancyNumber: payload.vacancyNumber,
+                Keyword: payload.keyword,
+                SelectedAgencyList: payload.department.map((obj) => obj.value),
+                SelectedCategoryList: payload.category.map((obj) => obj.value),
+                SelectedLocationsList: payload.location.map((obj) => obj.value),
+                RemunerationRangeFrom: payload.renumerationFrom,
+                RemunerationRangeTo: payload.renumerationTo,
+                SelectedVacanycyType: payload.vacancyType,
+                DateAdvertisedAfter: payload.date,
+                SalaryRangeFrom: payload.salaryFrom,
+                SalaryRangeTo: payload.salaryTo,
+            }),
+        });
 
-    if (response.status === 200) {
-        return await response.json();
-    } else {
-        return thunkAPI.rejectWithValue(await response.json());
+        const data = await response.json();
+
+        if(!data.length) {
+            throw Error;
+        }
+
+        return data;
+    } catch(error) {
+        return thunkAPI.rejectWithValue(error.message);
     }
 });
 
