@@ -3,6 +3,7 @@ import "styles/variables.scss";
 import "styles/globals.scss";
 
 // Global packages
+import "react-datepicker/dist/react-datepicker.css";
 import "react-accessible-accordion/dist/fancy-example.css";
 
 // Dependencies
