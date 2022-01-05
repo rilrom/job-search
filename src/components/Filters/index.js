@@ -4,6 +4,7 @@ import Router from "next/router";
 import Select from "react-select";
 import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
+import { formatISO, parseISO } from "date-fns";
 
 // Styles
 import classes from "./Filters.module.scss";
@@ -171,9 +172,11 @@ function Filters() {
                         Date Advertised After
                     </label>
                     <DatePicker
-                        selected={searchParams.date}
-                        onChange={(date) => handleChange(date, 'date')}
-                        minDate={new Date()}
+                        // formatISO and parseISO needed due to react-datepicker
+                        // no longer accepting string values as valid dates
+                        selected={searchParams.date ? parseISO(searchParams.date) : ''}
+                        onChange={(date) => handleChange(date ? formatISO(date) : '', 'date')}
+                        dateFormat="dd/MM/yyyy"
                         placeholderText='Select...'
                         className={classes.input}
                     />
