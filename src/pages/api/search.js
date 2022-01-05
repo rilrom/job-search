@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Using Next.js API routes due to CORS error when called client-side
-export default async (req, res) => {
+export default async function handler(req, res) {
     try {
         const response = await axios.post("https://jobs.nt.gov.au/Home/Search", JSON.stringify(req.body), {
             headers: {

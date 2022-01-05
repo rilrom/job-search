@@ -92,7 +92,7 @@ function SearchResults() {
                                                 <ul className={classes.accordionAttachments}>
                                                     {item.attachmentsList.map((attachment) => (
                                                         <li key={attachment.id}>
-                                                            <a href={attachment.fileURL} target='_blank'>{attachment.fileName}</a> - {attachment.fileCategory} - {attachment.fileExtension.toUpperCase()} ({attachment.fileSize / 1000} KB)
+                                                            <a href={attachment.fileURL} target="_blank" rel="noreferrer">{attachment.fileName}</a> - {attachment.fileCategory} - {attachment.fileExtension.toUpperCase()} ({attachment.fileSize / 1000} KB)
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -103,7 +103,7 @@ function SearchResults() {
                                         <div className={classes.accordionRow}>
                                             <div className={classes.accordionCell}>Further Information</div>
                                             <div className={classes.accordionCell}>
-                                                <a href={item.RecruitmentProgramUrl} target="_blank">{item.RecruitmentProgramUrl}</a>
+                                                <a href={item.RecruitmentProgramUrl} target="_blank" rel="noreferrer">{item.RecruitmentProgramUrl}</a>
                                             </div>
                                         </div>
                                     }
